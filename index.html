@@ -26,12 +26,18 @@
       max-width: 20vw; 
       min-width: 1em;
     }
+    @media only screen and (min-width: 40em) {
+      .videoplayer {
+        width: 480px;
+        height: 270px;
+      }
+    }
   </style>
 </head>
 <body class="font-roboto text-white">
   <div class="flex flex-col items-center justify-center min-h-screen">
     <img src="/anticscover.png" alt="Artificial Antics Logo" class="mb-8 logo">
-    <iframe src="https://www.youtube.com/embed/mCQ4EwKkC3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="videoplayer" src="https://www.youtube.com/embed/mCQ4EwKkC3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <div class="flex space-x-4 mt-8 mb-8">
       &#x1F44B; Like, subscribe and follow us! &#x1F91F;
     </div>
