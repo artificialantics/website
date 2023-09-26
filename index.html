@@ -16,6 +16,22 @@
       'domain': 'domain2',
       'user': '208',
     });
+
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    gtag('event', 'feature_usage_dimension',
+      {
+        'domain': 'domain' + getRandomNumber(1, 5),
+        'scope': 'scope' + getRandomNumber(1, 5),
+        'user':  + getRandomNumber(1, 5) + '00',
+        'reseller':  'reseller' + getRandomNumber(1, 5),
+        'email': 'anticstv@gmail.com',
+        'site': 'site' + getRandomNumber(1, 5)
+      }
+    );
+    
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
