@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-38DBKPCPWJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-38DBKPCPWJ');
+    gtag('js', new Date());
+
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    gtag('event', 'feature_usage_dimension',
+      {
+        'domain': 'domain' + getRandomNumber(1, 5),
+        'scope': 'scope' + getRandomNumber(1, 5),
+        'user':  + getRandomNumber(1, 5) + '00',
+        'reseller':  'reseller' + getRandomNumber(1, 5),
+        'email': 'anticstv@gmail.com',
+        'site': 'site' + getRandomNumber(1, 5)
+      }
+    );
+    
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artificial Antics</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #272d95;
+    }
+    .logo { 
+      max-width: 20vw; 
+      min-width: 1em;
+    }
+
+    .videoplayer {
+      width: 960px;
+      height: 540px;
+    }
+    
+    @media only screen and (max-width: 768px) {
+      .videoplayer {
+        width: 640px;
+        height: 360px;
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      .videoplayer {
+        width: 360px;
+        height: 202.5px;
+      }
+    }
+
+    #player_iframe {
+      width: 80vw !important;
+    }
+  </style>
+</head>
+<body class="font-roboto text-white">
+  <div class="flex flex-col items-center justify-center min-h-screen">
+    <img src="/anticscover.png" alt="Artificial Antics Logo" class="mb-8 logo">
+    <div class="flex space-x-4 mt-3 mb-3">
+      📧 Subscribe to get the most important news in our 💥new💥 AI Bytes newsletter!
+    </div>
+    <div class="flex space-x-4 mt-3 mb-3">
+       <iframe src="https://embeds.beehiiv.com/4f47cf63-bc3d-49c3-ac64-def5bf320491?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="width: 500px; margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
+    </div>    
+    <iframe class="videoplayer" src="https://www.youtube.com/embed/Q2Olt4Q1Hjk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="flex space-x-4 mt-3 mb-3">
+      📧 Subscribe to get the most important news in our 💥new💥 AI Bytes newsletter!
+    </div>
+    <div class="flex space-x-4 mt-3 mb-3">
+       <iframe src="https://embeds.beehiiv.com/4f47cf63-bc3d-49c3-ac64-def5bf320491?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="width: 500px; margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
+    </div>
+    <div class="flex space-x-4 mt-3 mb-3">
+      &#x1F44B; <a href="https://www.youtube.com/channel/UCXz1ADq4dDQ5yPy40GWDepQ?view_as=subscriber&sub_confirmation=1">Like, &nbsp; subscribe &nbsp; and follow us!</a> &#x1F91F;
+    </div>
+    <div class="flex space-x-4 mb-8">
+          <a href="https://twitter.com/anticslab" target="_blank"><img src="tw_cp.png" alt="Artificial Antics Twitter" width="50" height="50"></a>
+          <a href="https://www.youtube.com/@ArtificialAntics" target="_blank"><img src="yt_cp.png" alt="Artificial Antics YouTube" width="50" height="50"></a>
+          <a href="https://www.instagram.com/artificialantics" target="_blank"><img src="ig_cp.png" alt="Artificial Antics Instagram" width="50" height="50"></a>
+          <a href="https://www.tiktok.com/@artificialantics" target="_blank"><img src="tiktok.png" alt="Artificial Antics Tik Tok" width="50" height="50"></a>
+          <a href="https://podcasts.apple.com/us/podcast/artificial-antics/id1694398244" target="_blank"><img src="apple.png" alt="Artificial Antics on Apple Podcasts" width="50" height="50"></a>
+          <a href="https://open.spotify.com/show/0QpTQhJrdXNeqc5TX8clmj" target="_blank"><img src="social_spotify.png" alt="Artificial Antics on Spotify Podcasts" width="50" height="50"></a>
+    </div>
+
+    <div id='buzzsprout-large-player'></div><script type='text/javascript' charset='utf-8' src='https://www.buzzsprout.com/2178171.js?container_id=buzzsprout-large-player&player=large'></script>
+    
+<!--     <div id='buzzsprout-small-player' style="width: 90%"></div><script type='text/javascript' charset='utf-8' src='https://www.buzzsprout.com/2178171.js?container_id=buzzsprout-small-player&player=small'></script> -->
+    <footer class="text-zinc-200">
+      Copyright 2023 - Artificial Antics
+    </footer>
+  </div>
+</body>
+
+</html>
