@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Response Style Picker</title>
+  <style>
+    body {
+      background-color: #272d95;
+    }
+
+    .picker-container {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="picker-container">
+    <div><img src="https://antics.tv/anticscover.png" width="100" /></div>
+    <h3>ChatGPT Response Style Picker</h3>
+    <select id="verbosity">
+      <option value="V0">Minimal - Just the essential facts</option>
+      <option value="V1">Brief - Short and to the point</option>
+      <option value="V2">Concise - Balanced information</option>
+      <option value="V3">Detailed - More in-depth explanations</option>
+      <option value="V4">Comprehensive - Thorough coverage</option>
+      <option value="V5">Extensive - Maximum detail and examples</option>
+    </select>
+    <select id="proficiency">
+      <option value="A1">Beginner - Simple words and sentences</option>
+      <option value="A2">Elementary - Basic vocabulary and grammar</option>
+      <option value="B1">Intermediate - Everyday language</option>
+      <option value="B2">Upper Intermediate - More complex structures</option>
+      <option value="C1">Advanced - Sophisticated vocabulary</option>
+      <option value="C2">Proficient - Native-like fluency</option>
+    </select>
+    <div id="result"></div>
+    <p>Use the code above in your <b>Custom Instructions</b> like this: "Please use style [CODE] for all conversations
+    </p>
+  </div>
+
+  <script>
+    function updateResult() {
+      const verbosity = document.getElementById('verbosity').value;
+      const proficiency = document.getElementById('proficiency').value;
+      const result = document.getElementById('result');
+      result.textContent = `Selected style: ${verbosity}-L=${proficiency}`;
+    }
+
+    document.getElementById('verbosity').addEventListener('change', updateResult);
+    document.getElementById('proficiency').addEventListener('change', updateResult);
+
+    // Initial call to set default value
+    updateResult();
+  </script>
+</body>
+
+</html>
