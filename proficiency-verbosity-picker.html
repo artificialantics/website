@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     body {
       background-color: #272d95;
     }
-
     .picker-container {
       background-color: white;
       font-family: Arial, sans-serif;
@@ -19,20 +17,29 @@
       border: 1px solid #ddd;
       border-radius: 5px;
     }
-
     select {
       width: 100%;
       padding: 5px;
       margin-bottom: 10px;
     }
-
     #result {
       font-weight: bold;
       margin-top: 10px;
     }
+    #copyButton {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    #copyButton:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
-
 <body>
   <div class="picker-container">
     <div><img src="https://antics.tv/anticscover.png" width="100" /></div>
@@ -54,10 +61,10 @@
       <option value="C2">Proficient - Native-like fluency</option>
     </select>
     <div id="result"></div>
+    <button id="copyButton">Copy Code</button>
     <p>Use the code above in your <b>Custom Instructions</b> like this: "Please use style [CODE] for all conversations"
     </p>
   </div>
-
   <script>
     function updateResult() {
       const verbosity = document.getElementById('verbosity').value;
@@ -65,13 +72,20 @@
       const result = document.getElementById('result');
       result.textContent = `Selected style: ${verbosity}-L=${proficiency}`;
     }
-
     document.getElementById('verbosity').addEventListener('change', updateResult);
     document.getElementById('proficiency').addEventListener('change', updateResult);
-
     // Initial call to set default value
     updateResult();
+
+    document.getElementById('copyButton').addEventListener('click', function() {
+      const result = document.getElementById('result').textContent;
+      const code = result.split(': ')[1];
+      navigator.clipboard.writeText(code).then(function() {
+        alert('Code copied to clipboard!');
+      }, function(err) {
+        console.error('Could not copy text: ', err);
+      });
+    });
   </script>
 </body>
-
 </html>
