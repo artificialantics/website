@@ -218,127 +218,124 @@
   </div>
 
   <script>
-    const concepts = {
-      A: {title: "Algorithms", description: "Step-by-step problem-solving procedures."},
-      B: {title: "Big Data", description: "Large, complex data sets."},
-      C: {title: "Computer Vision", description: "Teaching computers to understand visual data."},
-      D: {title: "Deep Learning", description: "Neural networks with many layers."},
-      E: {title: "Ethics", description: "Responsible AI development principles."},
-      F: {title: "Fuzzy Logic", description: "Approximate reasoning."},
-      G: {title: "Generative Models", description: "Models that create new data."},
-      H: {title: "Heuristics", description: "Simple decision-making rules."},
-      I: {title: "Image Recognition", description: "Identifying objects in images."},
-      J: {title: "Joint Probability", description: "The likelihood of two events happening together."},
-      K: {title: "Knowledge Representation", description: "Structuring information for AI."},
-      L: {title: "Learning", description: "Improving performance over time."},
-      M: {title: "Machine Learning", description: "Systems that learn from data."},
-      N: {title: "Neural Networks", description: "AI systems inspired by the brain."},
-      O: {title: "Optimization", description: "Enhancing AI efficiency."},
-      P: {title: "Predictive Analytics", description: "Forecasting future events."},
-      Q: {title: "Q-Learning", description: "A reinforcement learning algorithm."},
-      R: {title: "Reinforcement Learning", description: "Learning through rewards and penalties."},
-      S: {title: "Supervised Learning", description: "Training on labeled data."},
-      T: {title: "Transfer Learning", description: "Applying knowledge from one task to another."},
-      U: {title: "Unsupervised Learning", description: "Finding patterns in unlabeled data."},
-      V: {title: "Variational Autoencoders", description: "Generative models using neural networks."},
-      W: {title: "Weight Initialization", description: "Setting initial neural network weights."},
-      X: {title: "Explainable AI", description: "AI that provides understandable decisions."},
-      Y: {title: "YOLO", description: "You Only Look Once - real-time object detection."},
-      Z: {title: "Zero-shot Learning", description: "Recognizing objects without prior examples."}
-    };
+    // AI Concepts Data (Make sure this is at the top of the file)
+const concepts = {
+  A: { title: "Algorithms", description: "Step-by-step problem-solving procedures." },
+  B: { title: "Big Data", description: "Large, complex data sets." },
+  C: { title: "Computer Vision", description: "Teaching computers to understand visual data." },
+  D: { title: "Deep Learning", description: "Neural networks with many layers." },
+  E: { title: "Ethics", description: "Responsible AI development principles." },
+  F: { title: "Fuzzy Logic", description: "Approximate reasoning." },
+  G: { title: "Generative Models", description: "Models that create new data." },
+  H: { title: "Heuristics", description: "Simple decision-making rules." },
+  I: { title: "Image Recognition", description: "Identifying objects in images." },
+  J: { title: "Joint Probability", description: "The likelihood of two events happening together." },
+  K: { title: "Knowledge Representation", description: "Structuring information for AI." },
+  L: { title: "Learning", description: "Improving performance over time." },
+  M: { title: "Machine Learning", description: "Systems that learn from data." },
+  N: { title: "Neural Networks", description: "AI systems inspired by the brain." },
+  O: { title: "Optimization", description: "Enhancing AI efficiency." },
+  P: { title: "Predictive Analytics", description: "Forecasting future events." },
+  Q: { title: "Q-Learning", description: "A reinforcement learning algorithm." },
+  R: { title: "Reinforcement Learning", description: "Learning through rewards and penalties." },
+  S: { title: "Supervised Learning", description: "Training on labeled data." },
+  T: { title: "Transfer Learning", description: "Applying knowledge from one task to another." },
+  U: { title: "Unsupervised Learning", description: "Finding patterns in unlabeled data." },
+  V: { title: "Variational Autoencoders", description: "Generative models using neural networks." },
+  W: { title: "Weight Initialization", description: "Setting initial neural network weights." },
+  X: { title: "Explainable AI", description: "AI that provides understandable decisions." },
+  Y: { title: "YOLO", description: "You Only Look Once - real-time object detection." },
+  Z: { title: "Zero-shot Learning", description: "Recognizing objects without prior examples." }
+};
 
-    // Array of gradient colors
-    const gradients = [
-      ['#4044B6', '#F153D9'], // Example gradient (blue to pink)
-      // ['#557B8F', '#00FFF7'], // Steel blue to cyan
-      ['#F153D9', '#4044B6']  // Pink to blue
-    ];
+// Function to generate a random position for the bubbles inside the SVG
+function getRandomPosition() {
+  return Math.floor(Math.random() * 120) + 15; // Ensures the bubble is within 15px to 135px
+}
 
-    // Function to get a random gradient
-    function getRandomGradient() {
-      return gradients[Math.floor(Math.random() * gradients.length)];
-    }
+// Function to generate SVG button for each letter with black to dark gray gradients and formatted text
+function generateSVG(letter) {
+  const concept = concepts[letter];
 
-    // Function to generate a random position for the bubbles inside the SVG
-    function getRandomPosition() {
-      return Math.floor(Math.random() * 120) + 15; // Ensures the bubble is within 15px to 135px
-    }
+  // Generate random positions for the bubbles
+  const bubble1PosX = getRandomPosition();
+  const bubble1PosY = getRandomPosition();
+  const bubble2PosX = getRandomPosition();
+  const bubble2PosY = getRandomPosition();
+  const bubble3PosX = getRandomPosition();
+  const bubble3PosY = getRandomPosition();
 
-    // Function to generate SVG button for each letter with random gradients, bubbles, and borders
-    function generateSVG(letter) {
-      // Generate random gradient colors
-      const [color1, color2] = getRandomGradient();
+  return `
+  <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" data-letter="${letter}" class="svg-button">
+    <!-- Outer black border -->
+    <rect x="0" y="0" width="150" height="150" rx="15" ry="15" fill="none" stroke="black" stroke-width="6"/>
+    
+    <!-- Inner gradient border (dark gray gradient) -->
+    <rect x="6" y="6" width="138" height="138" rx="12" ry="12" fill="url(#grad-${letter})" stroke="white" stroke-width="5"/>
 
-      // Generate random positions for the bubbles
-      const bubble1PosX = getRandomPosition();
-      const bubble1PosY = getRandomPosition();
-      const bubble2PosX = getRandomPosition();
-      const bubble2PosY = getRandomPosition();
-      const bubble3PosX = getRandomPosition();
-      const bubble3PosY = getRandomPosition();
+    <defs>
+      <!-- Dark gradient for the button -->
+      <linearGradient id="grad-${letter}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#2E2E2E;stop-opacity:1" />
+      </linearGradient>
+    </defs>
 
-      return `
-      <svg width="100" height="100" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" data-letter="${letter}" class="svg-button">
-        <!-- Outer black border -->
-        <rect x="0" y="0" width="150" height="150" rx="15" ry="15" fill="none" stroke="black" stroke-width="6"/>
+    <!-- Display the Letter -->
+    <text x="10%" y="30%" font-size="40" font-family="Arial" font-weight="bold" fill="white">${letter}</text>
 
-        <!-- Inner white border -->
-        <rect x="6" y="6" width="138" height="138" rx="12" ry="12" fill="url(#grad-${letter})" stroke="white" stroke-width="5"/>
+    <!-- Display the Title (AI concept name) -->
+    <text x="10%" y="50%" font-size="12" font-family="Arial" font-weight="bold" fill="white">${concept.title}</text>
 
-        <defs>
-          <linearGradient id="grad-${letter}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:${color1};stop-opacity:1" />
-            <stop offset="100%" style="stop-color:${color2};stop-opacity:1" />
-          </linearGradient>
-        </defs>
+    <!-- Display the Description -->
+    <text x="10%" y="70%" font-size="10" font-family="Arial" fill="white">${concept.description}</text>
 
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="100" font-family="Arial" font-weight="bold" fill="white" stroke="black" stroke-width="3">${letter}</text>
+    <!-- Randomized bubbles -->
+    <circle cx="${bubble1PosX}" cy="${bubble1PosY}" r="10" fill="rgba(255, 255, 255, 0.6)" />
+    <circle cx="${bubble2PosX}" cy="${bubble2PosY}" r="15" fill="rgba(255, 255, 255, 0.6)" />
+    <circle cx="${bubble3PosX}" cy="${bubble3PosY}" r="7" fill="rgba(255, 255, 255, 0.8)" />
+  </svg>
+  `;
+}
 
-        <!-- Randomized bubbles -->
-        <circle cx="${bubble1PosX}" cy="${bubble1PosY}" r="10" fill="rgba(255, 255, 255, 0.6)" />
-        <circle cx="${bubble2PosX}" cy="${bubble2PosY}" r="15" fill="rgba(255, 255, 255, 0.6)" />
-        <circle cx="${bubble3PosX}" cy="${bubble3PosY}" r="7" fill="rgba(255, 255, 255, 0.8)" />
-      </svg>
-      `;
-    }
+// Dynamically generate grid with SVG buttons
+const grid = document.getElementById('svg-grid');
+Object.keys(concepts).forEach(letter => {
+  const svgButton = generateSVG(letter);
+  const buttonWrapper = document.createElement('div');
+  buttonWrapper.innerHTML = svgButton;
+  grid.appendChild(buttonWrapper);
+});
 
-    // Dynamically generate grid with SVG buttons
-    const grid = document.getElementById('svg-grid');
-    Object.keys(concepts).forEach(letter => {
-      const svgButton = generateSVG(letter);
-      const buttonWrapper = document.createElement('div');
-      buttonWrapper.innerHTML = svgButton;
-      grid.appendChild(buttonWrapper);
-    });
+// Modal functionality
+const modal = document.getElementById('modal');
+const conceptTitle = document.getElementById('concept-title');
+const conceptDescription = document.getElementById('concept-description');
+const closeModal = document.querySelector('.close');
 
-    // Modal functionality
-    const modal = document.getElementById('modal');
-    const conceptTitle = document.getElementById('concept-title');
-    const conceptDescription = document.getElementById('concept-description');
-    const closeModal = document.querySelector('.close');
+// Add click event to each SVG button
+grid.addEventListener('click', (event) => {
+  if (event.target.closest('.svg-button')) {
+    const letterKey = event.target.closest('.svg-button').getAttribute('data-letter');
+    const concept = concepts[letterKey];
+    conceptTitle.textContent = concept.title;
+    conceptDescription.textContent = concept.description;
+    modal.style.display = 'flex'; // Show the modal
+  }
+});
 
-    // Add click event to each SVG button
-    grid.addEventListener('click', (event) => {
-      if (event.target.closest('.svg-button')) {
-        const letterKey = event.target.closest('.svg-button').getAttribute('data-letter');
-        const concept = concepts[letterKey];
-        conceptTitle.textContent = concept.title;
-        conceptDescription.textContent = concept.description;
-        modal.style.display = 'flex'; // Show the modal
-      }
-    });
+// Close modal when close button is clicked
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
 
-    // Close modal when close button is clicked
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
 
-    // Close modal when clicking outside the modal content
-    window.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
   </script>
 
 </body>
